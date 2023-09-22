@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Videos{% endblock %}
+
+{% block content %}
+    {% for lesson in lessons %}
+        <div>
+            <div>
+                <img src="" alt="">
+                <h1>{{ lesson.name }}</h1>
+            </div>
+            <div>
+                {% for video in lesson.videos.all %}
+                    <div>
+                        <h3>{{ video.headline }}</h3>
+                        <video width="1000" height="800" controls>
+                            <source src="{{ video.video.url }}" type="video/mp4">
+                        </video>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
